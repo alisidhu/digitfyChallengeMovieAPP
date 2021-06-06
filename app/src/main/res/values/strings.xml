@@ -32,6 +32,7 @@
     <string name="language">Language</string>
     <string name="release_date">Release Date</string>
     <string name="overview">Overview</string>
+    <string name="count">Video Count</string>
     <string name="cast">Cast</string>
     <string name="trailers" translatable="false">Trailers</string>
     <string name="reviews">Reviews</string>
