@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="trailer"
+            type="com.digitfy.android.model.movie.MovieTrailer" />
+
+        <variable
+            name="clickListener"
+            type="com.digitfy.android.adapter.trailer.TrailerClickListener" />
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_margin="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{()-> clickListener.onCLick(trailer)}"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivTrailerPic"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:contentDescription="@string/movie_trailer"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadImage="@{trailer.trailerImagePath}"
+                tools:src="@drawable/poster" />
+
+            <TextView
+                android:id="@+id/tvTrailerTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivTrailerPic"
+                android:text="@{trailer.name}"
+                tools:text="SPIDER-MAN: FAR FROM HOME - DELETED SCENE 'Peter &amp; MJ on the Plane' - On Blu-ray TUESDAY!" />
+
+            <ImageView
+                android:id="@+id/ivPlayTrailer"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/play_trailer"
+                android:src="@drawable/play_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/ivTrailerPic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivTrailerPic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
